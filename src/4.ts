@@ -21,31 +21,24 @@
 
 // Наприклад, ось так:
 class Key {
-  private signature: number;
-  constructor() {
-    this.signature = Math.random();
-  }
+  private signature: number = Math.random();
   getSignature(): number {
     return this.signature;
   }
 }
 class Person {
-  private key: Key;
-  constructor(key: Key) {
-    this.key;
-  }
+  constructor(private key: Key) {}
   getKey(): Key {
     return this.key;
   }
 }
 abstract class House {
-  protected door: boolean;
-  protected key: Key;
+  protected door: boolean = false;
   protected tenants: Person[] = [];
 
-  constructor(key: Key) {
-    this.door = false;
-    this.key = key;
+  constructor(protected key: Key) {
+    // this.door = false;
+    // this.key = key;
   }
 
   comeIn(person: Person): void {
